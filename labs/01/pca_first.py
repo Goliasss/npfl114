@@ -34,7 +34,8 @@ def main(args):
     # We want to reshape it to [args.examples, MNIST.H * MNIST.W * MNIST.C].
     # We can do so using `tf.reshape(data, new_shape)` with new shape
     # `[data.shape[0], data.shape[1] * data.shape[2] * data.shape[3]]`.
-    data = None
+    data = tf.reshape(data, [data.shape[0], data.shape[1] * data.shape[2] * data.shape[3]])
+    print(data.shape)
 
     # TODO: Now compute mean of every feature. Use `tf.math.reduce_mean`,
     # and set `axis` to zero -- therefore, the mean will be computed
